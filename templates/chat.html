@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Hub</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+</head>
+<body class="dark-mode">
+  <div class="container">
+    <header class="chat-header">
+      <h1 class="app-title">Chat Hub</h1>
+      <div class="header-controls">
+        <span class="user-status">Logged in as: {{ username }}</span>
+        <button id="theme-toggle" class="theme-toggle" title="Toggle theme">🌙</button>
+      </div>
+    </header>
+    
+    <main class="chat-main">
+      <aside class="user-list-container">
+        <div class="user-list-header">
+          <h2>Online Users</h2>
+        </div>
+        <ul id="online-users" class="user-list">
+          <!-- Online users will be listed here dynamically -->
+        </ul>
+      </aside>
+      
+      <section class="chat-container">
+        <div class="chat-header-recipient" id="chat-header-recipient">
+          <!-- Selected recipient will be shown here -->
+        </div>
+        <div class="chat-window">
+          <div id="message-list" class="message-list">
+            <!-- Messages will be added here dynamically -->
+          </div>
+        </div>
+      </section>
+    </main>
+    
+    <footer class="chat-footer">
+      <input type="file" id="media-upload" class="hidden" accept="image/*, video/*, audio/*">
+      <button id="media-send" class="icon-button" title="Send media">📎</button>
+      <button id="voice-message" class="icon-button" title="Send voice message">🎤</button>
+      <input type="text" id="message-input" class="message-input" placeholder="Type a message...">
+      <button id="send-message" class="icon-button send-btn" title="Send message">➤</button>
+    </footer>
+  </div>
+  
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
